@@ -96,6 +96,12 @@ namespace LAB3_свой_тип
                     case "/":
                         sumLength = firstLength / secondLength;
                         break;
+                    case "Больше":
+                        sumLength = firstLength > secondLength;
+                        break;
+                    case "Меньше":
+                        sumLength = firstLength < secondLength;
+                        break;
                     default:
                         sumLength = firstLength + secondLength;
                         break;

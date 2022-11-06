@@ -86,10 +86,52 @@ namespace LAB3_свой_тип
         {
             return instance / number;
         }
-        //public bool Compare(Temperatura instance1, Temperatura instance2)
+        public bool Compare(Temperatura instance1, Temperatura instance2)
+        {
+            return instance1.value > instance2.value;
+        }
+
+        //public static Temperatura operator >(double number, Temperatura instance)
         //{
-        //    return instance1.value > instance2.value;
+        //    if(Compare(number, instance){ }
+        //    return
         //}
+        public static Temperatura operator >(Temperatura instance, double number)
+        {
+            // расчитываем новую значение
+            var newValue = instance.value;
+            // создаем новый экземпляр класса, с новый значением и типом как у меры, к которой число добавляем
+            var grad = new Temperatura(newValue, instance.type);
+            // возвращаем результат
+            if (number>newValue)
+            {
+                return new Temperatura (number, instance.type);
+            }
+            else
+            {
+                return new Temperatura(newValue, instance.type);
+            }
+           
+            //return new Temperatura(instance.value * number, instance.type); ;
+        }
+        public static Temperatura operator <(Temperatura instance, double number)
+        {
+            // расчитываем новую значение
+            var newValue = instance.value;
+            // создаем новый экземпляр класса, с новый значением и типом как у меры, к которой число добавляем
+            var grad = new Temperatura(newValue, instance.type);
+            // возвращаем результат
+            if (number < newValue)
+            {
+                return new Temperatura(number, instance.type);
+            }
+            else
+            {
+                return new Temperatura(newValue, instance.type);
+            }
+
+            //return new Temperatura(instance.value * number, instance.type); ;
+        }
 
         //новая функция, возвращает тип Length, по имени To, на вход подается тип newType
         public Temperatura To(MeasureType newType)
@@ -175,16 +217,16 @@ namespace LAB3_свой_тип
             return instance1 / instance2.To(instance1.type).value;
         }
 
-        //public static Temperatura operator >(Temperatura instance1, Temperatura instance2)
-        //{
-             
-        //    return = Temperatura.Compare(instance1, instance2);
-        //}
-        //public static Temperatura operator <(Temperatura instance1, Temperatura instance2)
-        //{
-        //    // тут все тоже, только с с умножением
-        //    return instance1 / instance2.To(instance1.type).value;
-        //}
+        public static Temperatura operator >(Temperatura instance1, Temperatura instance2)
+        {
+
+            return instance1 > instance2.To(instance1.type).value;
+        }
+        public static Temperatura operator <(Temperatura instance1, Temperatura instance2)
+        {
+            // тут все тоже, только с с умножением
+            return instance1 < instance2.To(instance1.type).value;
+        }
 
 
     }

@@ -44,8 +44,8 @@
             "-",
             "*",
             "/",
-            "==",
-            "!="});
+            "Больше",
+            "Меньше"});
             this.cmbOperation.Location = new System.Drawing.Point(272, 115);
             this.cmbOperation.Name = "cmbOperation";
             this.cmbOperation.Size = new System.Drawing.Size(121, 28);
