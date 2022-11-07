@@ -37,6 +37,15 @@ namespace LAB3_свой_тип
             }
             return String.Format("{0} {1}", Math.Round(this.value, 5), this.type);
         }
+        public Boolean Equals(Object obj)
+        {
+            var p = obj as Temperatura;
+            if (p == null)
+            {
+                return false;
+            }
+            return (this.value == p.value) && (this.type == p.type);
+        }
         public static Temperatura operator +(Temperatura instance, double number)
         {
             //// расчитываем новую значение
@@ -86,16 +95,12 @@ namespace LAB3_свой_тип
         {
             return instance / number;
         }
-        public bool Compare(Temperatura instance1, Temperatura instance2)
-        {
-            return instance1.value > instance2.value;
-        }
-
-        //public static Temperatura operator >(double number, Temperatura instance)
+        //public bool Compare(Temperatura instance1, Temperatura instance2)
         //{
-        //    if(Compare(number, instance){ }
-        //    return
+        //    return instance1.value > instance2.value;
         //}
+
+       
         public static Temperatura operator >(Temperatura instance, double number)
         {
             // расчитываем новую значение
